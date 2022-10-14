@@ -31,7 +31,10 @@
     </div>
     <input class="slider" disabled={config.readOnly} type="range" min={config.range.min} max={config.range.max} step="{config.range.step}" bind:value={config.score}>
   </div>
-  {#if config.showScore}<span class="show-score" style="font-size: {config.starConfig.size/2}px;">({parseFloat((config.score/config.countStars)*100).toFixed(2)}%)</span>{/if}
+  <!-- {#if config.showScore}<span class="show-score" style="font-size: {config.starConfig.size/2}px;">({parseFloat((config.score/config.countStars)*100).toFixed(2)}%)</span>{/if} -->
+
+  {#if config.showScore}<span class="show-score" style="font-size: {config.starConfig.size/2}px;">({config.score}/{config.countStars})</span>{/if}
+  
 </section>
 
 <style>
@@ -63,6 +66,7 @@
   }
   .show-score{
     user-select: none;
-    color: #888
+    color: #888;
+    width: 45px;
   }
 </style>
